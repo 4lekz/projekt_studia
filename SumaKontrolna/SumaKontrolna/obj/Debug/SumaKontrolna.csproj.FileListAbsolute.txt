@@ -1,0 +1,5 @@
+D:\lab_ps\AleksanderM\projekt_studia\SumaKontrolna\SumaKontrolna\bin\Debug\SumaKontrolna.exe
+D:\lab_ps\AleksanderM\projekt_studia\SumaKontrolna\SumaKontrolna\bin\Debug\SumaKontrolna.pdb
+D:\lab_ps\AleksanderM\projekt_studia\SumaKontrolna\SumaKontrolna\obj\Debug\SumaKontrolna.csprojResolveAssemblyReference.cache
+D:\lab_ps\AleksanderM\projekt_studia\SumaKontrolna\SumaKontrolna\obj\Debug\SumaKontrolna.exe
+D:\lab_ps\AleksanderM\projekt_studia\SumaKontrolna\SumaKontrolna\obj\Debug\SumaKontrolna.pdb
