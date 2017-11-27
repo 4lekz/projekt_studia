@@ -5,46 +5,55 @@ namespace ConsoleApplication1
     
     internal class Program
     {
-        private static byte[] cos2 = new byte[]{1,0,1,0,1,0,0,0,1,1,1};
+       
+
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("CRC");
+            Console.WriteLine(Program.Crc(dane));
+        }
+
+        private static byte[] dane = new byte[] {0xFF};
+        
         public static int GetBit(byte b, int bitNumber)
         {
             return (int) (b & (1 << bitNumber - 1));
         }
-
-        public static void Main(string[] args)
+        public static int Crc(byte[] dane)
         {
-            Console.WriteLine(cos2);
-        }
-
-        public static int Crc(byte[] cos2)
-        {
-            var crc16 = 0xFFFF;
+            var crc16 = 0x00;
             
 
-            for (int i = 0; i < cos2.Length; i++)
+            foreach (byte t in dane)
             {
-                crc16 = cos2[i] ^ crc16;
-                for (int j = 0; j < 8; j++)
+                crc16 ^= t;
+                for (int j = 8; j > 0; j--)
                 {
-                    if (1 == Program.GetBit((byte) crc16, 1))
+                    if (1 == Program.GetBit((byte) crc16, j))
                     {
-                        crc16 = crc16 >> 1;
-                        crc16 = crc16 ^ 0xA001;
-
+                        
+                        Console.WriteLine(crc16);
+                        crc16 ^= 0x0D;
+                        crc16 >>= 1;
+                        Console.WriteLine(crc16);
                     }
                     else
                     {
-                        crc16 = crc16>>1;
+                        crc16 >>= 1;
                     }
                 }
             }
+            return crc16;
+            
+            //bit parz. XOR przez 0 dla całego wyrazu np 1010 daje nam 0. Czemu?
+            //bo 1 xor 0, 0 xor wynik poprzedniego działania itp
 //            byte b, a, p;
 //            //byte m;
 //            char[] cos2 = new char[]{'a','b','o','r'};
 //            char[] m = new char[] {'b'};
 //            a = 0;
-            
-            
+
+
 //            foreach (var v in cos2)
 //            {
 //                for (int j = 0; j < 8; j++)
@@ -73,7 +82,7 @@ namespace ConsoleApplication1
 //
 //                }
 //            }
-            
+
 //            Console.WriteLine(a);
         }
     }
