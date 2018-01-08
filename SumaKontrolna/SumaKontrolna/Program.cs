@@ -21,7 +21,7 @@ namespace ConsoleApplication1
         }
         public static int Crc(byte[] dane)
         {
-            var crc16 = 0x00;
+            var crc16 = 0xF;
             
 
             foreach (byte t in dane)
@@ -31,18 +31,19 @@ namespace ConsoleApplication1
                 {
                     if (1 == Program.GetBit((byte) crc16, j))
                     {
-                        
+                        Console.WriteLine("koncowy wynik");
                         Console.WriteLine(crc16);
                         crc16 ^= 0x0D;
-                        crc16 >>= 1;
+                        //crc16 >>= 1;
                         Console.WriteLine(crc16);
                     }
                     else
                     {
-                        crc16 >>= 1;
+                       // crc16 >>= 1;
                     }
                 }
             }
+            Console.WriteLine("koncowy wynik");
             return crc16;
             
             //bit parz. XOR przez 0 dla całego wyrazu np 1010 daje nam 0. Czemu?
